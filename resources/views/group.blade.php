@@ -6,12 +6,15 @@
 
         <div class="py-3">
             <h5 class="text-secondary">Welcome, {{session('name')}}</h3>
-            <div class="input-group col-auto">
-                <input id="copyit" type="text" class="form-control" onclick="this.select()" value="{{url('/group').'/'.$group}}" readonly>
-                <button onclick="copylink(this)" type="button" class="btn btn-primary">copy</button>
-            </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <input id="copyit" type="text" class="form-control" onclick="this.select()" value="{{url('/group').'/'.$group}}" readonly>
+                </div>
+                </div>
+            
             <div class="text-muted text-small mt-2 ms-2">
-                Share this link with your friends so that they can also join this group and start chatting.
+                Copy and share this link with your friends so they can also join this group and start chatting.
             </div>
         </div>
 
@@ -64,10 +67,10 @@
                     <div class="card-text text-muted mb-2">
                         Please enter your name to join the group.
                     </div>
-                    <form class="input-group" method="post">
+                    <form id="csrf" class="input-group" method="post">
                         @csrf
-                        <input placeholder="enter your name here" class="form-control" type="text" name="name">
-                        <button onclick="submitm" type="button" class="bi btn btn-primary bi-check-lg">
+                        <input placeholder="enter your name here" class="form-control" type="text" name="name" required>
+                        <button type="submit" class="bi btn btn-primary bi-check-lg">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
                               </svg>

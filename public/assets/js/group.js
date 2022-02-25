@@ -1,16 +1,10 @@
 
 var inputs = document.getElementsByTagName('input');
-var askname = $("askmyname");
 var parent = document.getElementById("parent");
 var doingwork = false;
+var csrf = document.getElementById("csrf").getElementsByTagName("input")[0].value;
 
-function copylink(button){
-    let link = inputs[0].value;
-    inputs[0].select();
-    navigator.clipboard.writeText(link);
 
-    button.innerText = "copied";
-}
 function removename(){
     
     document.getElementById('askmyname').style.visibility = "hidden";
@@ -23,7 +17,7 @@ setInterval(function(){
         $.post("/getmessages",
         {
             group: window.location.href.split('/')[4],
-            _token: inputs[3].value,
+            _token: csrf,
             offset: parent.childElementCount
         },
         function(data,status){
@@ -60,7 +54,7 @@ function sendmessage(){
         
         $.post('/sendmessage',{
             group: window.location.href.split('/')[4],
-            _token: inputs[1].value,
+            _token: csrf,
             message: inputs[2].value
         },
         function(data){

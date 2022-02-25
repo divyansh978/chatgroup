@@ -3,7 +3,6 @@
 use App\Http\Controllers\Groupdata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Chat;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,10 +25,6 @@ Route::match(['get','post'],'/group/{gname}',function(Request $req, $gname){
 
     return (new Groupdata())->Checkgroup($req,$gname);
     
-});
-
-Route::get('/session',function(){
-    return session()->all();
 });
 
 Route::post('/getmessages',[Groupdata::class,'getchats']);

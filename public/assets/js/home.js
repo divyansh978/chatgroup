@@ -20,7 +20,7 @@ function checkgroup(button){
 
     if(jsondata.response == 1){
 
-        window.location.href = 'http://localhost/group/'+inputs[1].value;
+        window.location.href = window.location.href+'group/'+inputs[1].value;
 
     }else{
       groupwarning.style.visibility = 'visible';

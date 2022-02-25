@@ -10,7 +10,7 @@
   </div>
   <div class="row justify-content-center mt-4">
     <div class="col-10 col-md-7 col-lg-6">
-      <form action="{{ url("/") }}" name="checkname" method="post">
+
         @csrf
         <div class="mb-3 input-group">
           <span id="inputgrouptxt" class="input-group-text">{{url('/group/').'/'}}</span>
@@ -18,7 +18,7 @@
           <button type="button" onclick="checkgroup(this)" class="btn btn-primary">create</button>
         </div>
         <span style="visibility:hidden" id="groupwarning" class="text-danger"> * This group already exists please choose another name.</span>
-      </form>
+
   </div>
   <div class="col-12 text-center">
     <p id="error" class="text-small d-none text-danger">This group already exists please choose another name.</p>
